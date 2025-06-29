@@ -1,0 +1,219 @@
+/* Purple Themed Leaderboard */
+:root {
+  --primary: #6a11cb;
+  --secondary: #2575fc;
+  --accent: #ff4081;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --highlight: #ffdf00;
+}
+
+body {
+  background-image: url('../media/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text-light);
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+body.dark-mode {
+  background-color: #111 !important;
+  background-image: none !important;
+}
+
+.leaderboard-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: rgba(106, 17, 203, 0.8);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 64, 129, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.dark-mode .leaderboard-container {
+  background: rgba(37, 37, 50, 0.9);
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.leaderboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--highlight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.subtext {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-buttons button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button.active {
+  background: var(--accent);
+  font-weight: bold;
+}
+
+.filter-buttons button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 200px;
+  word-break: break-word;
+}
+
+th {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.highlight-user {
+  font-weight: bold;
+  color: var(--highlight) !important;
+  background: rgba(255, 223, 0, 0.1) !important;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: glow 1.5s infinite alternate;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #f50057);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #f50057;
+  }
+  to {
+    box-shadow: 0 0 20px var(--accent), 0 0 30px #f50057;
+  }
+}
+
+@media (max-width: 768px) {
+  .leaderboard-container {
+    padding: 1rem;
+  }
+
+  th,
+  td {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.error-message {
+  color: #ff6b6b;
+  text-align: center;
+  padding: 2rem;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - ThinkStorm</title>
+
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/quiz.css" />
+
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body style="background: linear-gradient(to bottom right, #7f00ff, #e100ff); color: white;">
+
+  
+  <nav class="navbar navbar-expand-lg p-3" style="background-color: #6a11cb;">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <a href="/" class="navbar-brand d-flex align-items-center">
+        <img src="/media/image.png" alt="Logo" style="width: 40px; margin-right: 10px;" />
+        <span class="fw-bold text-white">ThinkStorm</span>
+      </a>
+      <button onclick="toggleMode()" class="btn btn-outline-light">🌞 / 🌙</button>
+      <ul class="navbar-nav d-flex flex-row gap-3 mb-0">
+        <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/review">Review</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/results">Results</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/leaderboard">Leaderboard</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/quizsetup">Play Quiz</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8 quiz-container text-dark" id="quizPage">
+     
+        <div id="hud" class="d-flex justify-content-between mb-3">
+          <div><strong>Question:</strong> <span id="question-counter">1</span></div>
+          <div><strong>Score:</strong> <span id="score">0</span></div>
+          <div class="timer"><i class="fa-regular fa-clock"></i> <span id="timer">15s</span></div>
+        </div>
+
+        <div id="question" class="mb-3">Loading question...</div>
+
+      
+        <div id="choices" class="choices-container">
+          <div class="choice-container"><p class="choice-text" data-number="1"></p></div>
+          <div class="choice-container"><p class="choice-text" data-number="2"></p></div>
+          <div class="choice-container"><p class="choice-text" data-number="3"></p></div>
+          <div class="choice-container"><p class="choice-text" data-number="4"></p></div>
+        </div>
+
+     
+        <div id="emojiFeedback" class="emoji-feedback mt-3"></div>
+
+       
+        <div id="progress-boxes" class="progress-boxes mt-4"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center mt-4 text-white py-3" style="background-color: #6a11cb;">
+    <p class="mb-0">&copy; 2025 ThinkStorm. All rights reserved.</p>
+  </footer>
+
+
+  <audio id="correctSound" src="/media/correct.mp3" preload="auto"></audio>
+  <audio id="wrongSound" src="/media/wrong.mp3" preload="auto"></audio>
+  <audio id="clickSound" src="/media/click.wav" preload="auto"></audio>
+
+
+<script id="question-data" type="application/json">
+  <%- JSON.stringify(questions) %>
+</script>
+<script>
+  window.questions = JSON.parse(document.getElementById("question-data").textContent);
+</script>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/quiz.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

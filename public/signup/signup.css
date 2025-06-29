@@ -1,0 +1,152 @@
+
+body {
+  background: linear-gradient(135deg, #6a11cb, #8e2de2);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffdf00 !important;
+}
+
+header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffdf00;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+header h3 {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+.cont {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 223, 0, 0.25);
+}
+
+.button {
+  background: linear-gradient(135deg, #ffdf00, #ffc107);
+  color: #000;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+footer a {
+  color: #ffdf00;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+#signupSuccess {
+  color: #4caf50;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+
+.dark-mode {
+  background: #121212 !important;
+  animation: none !important;
+}
+
+.dark-mode .cont {
+  background: rgba(30, 30, 30, 0.8);
+}
+
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  .navbar {
+    padding: 0.5rem;
+  }
+  
+  .cont {
+    padding: 1.5rem;
+  }
+}
